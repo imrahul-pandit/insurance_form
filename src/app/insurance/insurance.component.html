@@ -1,0 +1,349 @@
+<div class="row">
+    <form  #insuranceForm="ngForm">
+        <div class="row mb-3 ">
+          <label for="name" class="col-sm-3 col-form-label">Name</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name"  #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+             </div>
+             
+
+          <label for="state" class="col-sm-2 col-form-label">State</label>
+          <div class="col-sm-2">            
+            
+            <select class="form-select"  name="state" [(ngModel)]="model.state"  id="state" #state ="ngModel" >
+                                   
+                <option *ngFor="let statevalue of states" [value]="statevalue" >{{ statevalue }} </option>                         
+              </select>
+
+              <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          State is required
+        </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputInvoiceID" class="col-sm-3 col-form-label">Invoice ID</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" name="invoice" id="inputInvoiceID" [(ngModel)]="model.invoice" #invoice="ngModel">
+
+            <div [hidden]="invoice.valid || invoice.pristine" class="alert alert-danger">
+         Invoice is required
+       </div>
+
+          </div>
+
+          <label for="inputInvoiceValue" class="col-sm-2 col-form-label ml-1">Invoice Value Of Device</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" name="invoicedevice" id="inputInvoiceValue" [(ngModel)]="model.invoicedevice" #invoicedevice="ngModel">  
+
+             <div [hidden]="invoicedevice.valid || invoicedevice.pristine" class="alert alert-danger">
+         Invoice Value of Device is required
+       </div>
+          </div>
+        </div>
+
+
+        <div class="row mb-5">
+            <label for="Mobile" class="col-sm-3 col-form-label">Mobile</label>
+            <div class="col-sm-2">
+              <input type="text" name="mobile" class="form-control" id="Mobile" [(ngModel)]="model.mobile" #mobile="ngModel">
+
+              <div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">
+                Mobile is required
+              </div>
+
+            </div>
+  
+            <label for="inputEmailID" class="col-sm-2 col-form-label ml-1">Email ID</label>
+            <div class="col-sm-2">
+              <input type="email" class="form-control" name="emailid" id="inputEmailID" [(ngModel)]="model.emailid" #emailid="ngModel">
+              <div [hidden]="emailid.valid || emailid.pristine" class="alert alert-danger">
+                Email Id is required
+              </div>
+            </div>
+          </div>
+
+          
+        <div class="row mb-3">
+            <label for="inputDeviceCategory" class="col-sm-3 col-form-label">Device Category (Mobile/Laptop)</label>
+            <div class="col-sm-2">
+
+                <select class="form-select"  name="devicecategory" id="inputDeviceCategory" [(ngModel)]="model.category" #category="ngModel">                     
+                    <option *ngFor="let cat of categories" [value]="cat" #ngModel>{{ cat }} </option>    
+                    <div [hidden]="category.valid || category.pristine" class="alert alert-danger">
+                        Category is required
+                      </div>
+                              
+                  </select>            
+            
+            </div>
+  
+            <label for="inputPurchaseDate" class="col-sm-2 col-form-label ml-1">Purchase Date of Device</label>
+            <div class="col-sm-2">
+              <input type="date" class="form-control" name="datepurchase" id="inputPurchaseDate" [(ngModel)]="model.datepurchase"  #ngbDatepicker #datepurchase="ngModel">
+              <div [hidden]="datepurchase.valid || datepurchase.pristine" class="alert alert-danger">
+                Date Purchase is required
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <label for="inputBrand" class="col-sm-3 col-form-label">Mobile/Laptop Brand</label>
+            <div class="col-sm-2">
+
+                <select class="form-select"  name="brand" id="inputBrand" [(ngModel)]="model.brand" #brand="ngModel" >                    
+                    <option *ngFor="let brnd of brands" [value]="brnd" >{{ brnd }} </option>    
+                              
+                  </select> 
+                  <div [hidden]="brand.valid || brand.pristine" class="alert alert-danger">
+                    Brand is required
+                  </div>               
+            </div>
+  
+            <label for="inputModel" class="col-sm-2 col-form-label ml-1">Mobile/Laptop Model</label>
+            <div class="col-sm-2">
+
+                <select class="form-select"  name="model" id="inputModel"  [(ngModel)]="model.devicemodel" #devicemodel="ngModel">    
+                                   
+                    <option *ngFor="let mod of lapimodel" [value]="mod" #ngModel>{{ mod }} </option>    
+  
+                              
+                  </select>
+
+                  <div [hidden]="devicemodel.valid || devicemodel.pristine" class="alert alert-danger">
+                    Device Model is required
+                  </div>
+
+            </div>
+          </div>
+
+
+          
+          <div class="row mb-3">
+            <label for="inputimeione" class="col-sm-3 col-form-label">IMEI 1 Number</label>
+            <div class="col-sm-2">
+              <input type="text" name="imeione" class="form-control" value="" id="inputimeione" [(ngModel)]="model.inumber1" #inumber1="ngModel">
+
+              <div [hidden]="inumber1.valid || inumber1.pristine" class="alert alert-danger">
+                IMEI1 is required
+              </div>
+
+            </div>
+  
+            <label for="inputIMEI2" class="col-sm-2 col-form-label">IMEI 2 Number</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" name="imei_two" id="inputIMEI2" [(ngModel)]="model.imei_two" #imei_two="ngModel">
+
+              <div [hidden]="imei_two.valid || imei_two.pristine" class="alert alert-danger">
+                IMEI2 is required
+              </div>
+
+
+
+            </div>
+          </div>
+
+
+          
+          <div class="row mb-5">
+            <label for="inputInsurance" class="col-sm-3 col-form-label">Insurance Plan</label>
+            <div class="col-sm-2">
+              
+                <select class="form-select"  name="insurance" id="inputInsurance" [(ngModel)]="model.insurance" #insurance="ngModel">  
+                                      
+                    <option *ngFor="let insu of insurances" [value]="insu" #ngModel>{{ insu }} </option>    
+    
+                              
+                  </select>
+                  <div [hidden]="insurance.valid || insurance.pristine" class="alert alert-danger">
+                    Insurance is required
+                  </div>
+    
+            </div>
+  
+            <label for="inputPlanID" class="col-sm-2 col-form-label ml-4">Plan ID</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" name="planid" id="inputPlanID" [(ngModel)]="model.planid" #planid="ngModel">
+
+              <div [hidden]="planid.valid || planid.pristine" class="alert alert-danger">
+                Plan ID is required
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="inputElevaSerial" class="col-sm-3 col-form-label">Eleva Serial Number</label>
+            <div class="col-sm-2">
+              <input type="text" name="serialno" class="form-control" id="inputElevaSerial" [(ngModel)]="model.serialno" #serialno="ngModel">
+              <div [hidden]="serialno.valid || serialno.pristine" class="alert alert-danger">
+                Eleva Serial Number is required
+              </div>
+
+            </div>
+  
+            
+          </div>
+
+
+
+          <div class="row mb-3">
+            <label for="inputPoliceType" class="col-sm-3 col-form-label">Police Type</label>
+            <div class="col-sm-2">
+                <select class="form-select"  name="policetype" id="inputPoliceType" [(ngModel)]="model.policetype" #policetype="ngModel">  
+                                      
+                    <option *ngFor="let polityp of policetyp" [value]="polityp" #ngModel>{{ polityp }} </option>    
+   
+                              
+                  </select>
+                  <div [hidden]="policetype.valid || policetype.pristine" class="alert alert-danger">
+                    Police Type is required
+                  </div>
+    
+            </div>
+  
+            <label for="inputProgramType" class="col-sm-2 col-form-label ml-4">Program Type</label>
+            <div class="col-sm-2">
+
+                <select class="form-select"  name="programtype" id="inputProgramType" [(ngModel)]="model.programtype" #programtype="ngModel">  
+                                      
+                    <option *ngFor="let protype of programtypes" [value]="protype" #ngModel>{{ protype }} </option>    
+   
+                              
+                  </select> 
+                  <div [hidden]="programtype.valid || programtype.pristine" class="alert alert-danger">
+                    Program Type is required
+                  </div>
+                 
+            </div>
+          </div>
+
+          
+          <div class="row mb-3">
+            <label for="inputPlanBought" class="col-sm-3 col-form-label">Police (Eleva) Plan Bought On</label>
+            <div class="col-sm-2">
+              <input type="date" name="planbought" class="form-control" id="inputPlanBought" [(ngModel)]="model.planbought" ngbDatepicker #planbought="ngModel">
+
+              <div [hidden]="planbought.valid || planbought.pristine" class="alert alert-danger">
+                Police (Eleva) Plan Bought is required
+              </div>
+
+            </div>
+  
+            <label for="inputDeclared" class="col-sm-2 col-form-label ml-4">Declared On</label>
+            <div class="col-sm-2">
+                <input type="date" name="declared" class="form-control" id="inputStartDate" [(ngModel)]="model.declared" ngbDatepicker #declared="ngModel">
+                <div [hidden]="declared.valid || declared.pristine" class="alert alert-danger">
+                    Declared On is required
+                  </div>
+    
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="inputStartDate" class="col-sm-3 col-form-label">Police (Eleva) Start Date</label>
+            <div class="col-sm-2">
+              <input type="date" name="startdate" class="form-control" id="inputStartDate" [(ngModel)]="model.startdate" ngbDatepicker #startdate="ngModel">
+
+              <div [hidden]="startdate.valid || startdate.pristine" class="alert alert-danger">
+                Startdate is required
+              </div>
+
+            </div>
+  
+            <label for="inputEndDate" class="col-sm-2 col-form-label ml-4">Police (Eleva) End Date </label>
+            <div class="col-sm-2">
+              <input type="date" class="form-control" name="endtdate" id="inputEndDate" [(ngModel)]="model.endtdate" ngbDatepicker #endtdate="ngModel">
+
+              <div [hidden]="endtdate.valid || endtdate.pristine" class="alert alert-danger">
+                End Date is required
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <div class="row mb-5">
+            <label for="inputPremiumRate" class="col-sm-3 col-form-label">Police Premium Rate</label>
+            <div class="col-sm-2">
+              <input type="text" name="premiumrate" class="form-control" id="inputPremiumRate" [(ngModel)]="model.premiumrate" #premiumrate="ngModel">
+
+              <div [hidden]="premiumrate.valid || premiumrate.pristine" class="alert alert-danger">
+                Police Premium Rate is required
+              </div>
+
+            </div>
+  
+            <label for="inputPremiumEnd" class="col-sm-2 col-form-label ml-4">Premium </label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" id="inputPremiumEnd" name="premiumend" [(ngModel)]="model.premiumend" #premiumend="ngModel">
+
+              <div [hidden]="premiumend.valid || premiumend.pristine" class="alert alert-danger">
+                Premium is required
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <label for="inputTax" class="col-sm-3 col-form-label">Tax</label>
+            <div class="col-sm-2">
+              <input type="text" name="tax" class="form-control" id="inputTax" [(ngModel)]="model.tax" #tax="ngModel">
+
+              <div [hidden]="tax.valid || tax.pristine" class="alert alert-danger">
+                Tax is required
+              </div>
+
+            </div>
+  
+            <label for="inputPremiumInc" class="col-sm-2 col-form-label ml-4">Premium Inc Tax </label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" name="premiuminc" id="inputPremiumInc" [(ngModel)]="model.premiuminc" #premiuminc="ngModel">
+
+              <div [hidden]="premiuminc.valid || premiuminc.pristine" class="alert alert-danger">
+                Premium Inc Tax is required
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="row mb-3">
+            <label for="inputAT" class="col-sm-3 col-form-label">AT</label>
+            <div class="col-sm-2">
+              <input type="text" name="at" class="form-control" id="inputAT" [(ngModel)]="model.premiumiat" #premiumiat="ngModel">
+
+              <div [hidden]="premiumiat.valid || premiumiat.pristine" class="alert alert-danger">
+                AT is required
+              </div>
+
+            </div>
+  
+            <label for="inputMRP" class="col-sm-2 col-form-label ml-4">MRP </label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" id="inputMRP" name="mrp" [(ngModel)]="model.mrp" #mrp="ngModel">
+
+              <div [hidden]="mrp.valid || mrp.pristine" class="alert alert-danger">
+                MRP is required
+              </div>
+
+            </div>
+          </div>
+        
+        <button type="button" class="btn btn-primary">New</button>
+        <button type="submit" class="btn btn-success mx-3 ">Save</button>
+        <button type="button" class="btn btn-danger  ">Clear</button>
+
+      </form>
+      
+      <pre> {{ insuranceForm.value | json  }}</pre>
+</div>
+
